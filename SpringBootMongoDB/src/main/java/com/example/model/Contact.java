@@ -5,13 +5,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "contacts")
 public class Contact {
-    @Id
-    String id;
-    String name;
-    String address;
-    String city;
-    String phone;
-    String email;
+    
+	@Id
+    private String id;
+    private String name;
+    private String address;
+    private String city;
+    private String phone;
+    private String email;
+    private String otp;
 
     public Contact() {
     }
@@ -24,15 +26,15 @@ public class Contact {
         this.email = email;
     }
 
-    public String getId() {
-        return id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getName() {
+	public String getName() {
         return name;
     }
 
@@ -71,4 +73,14 @@ public class Contact {
     public void setEmail(String email) {
         this.email = email;
     }
+
+	public String getOtp() {
+		return otp;
+	}
+
+	public void setOtp(String otp) {
+		this.otp = otp;
+	}
+    
+    
 }

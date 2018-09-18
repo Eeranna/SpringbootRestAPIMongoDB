@@ -3,6 +3,10 @@ package com.example.controller;
 import com.example.model.Contact;
 import com.example.model.User;
 import com.example.repository.ContactRepository;
+import com.example.repository.OtpService;
+
+import java.util.List;
+import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -19,6 +23,9 @@ public class ContactController {
 
     @Autowired
     ContactRepository contactRepository;
+    
+    @Autowired
+    OtpService otpService;
 
     @RequestMapping(method=RequestMethod.GET, value="/contacts")
     public Iterable<Contact> contact() {
@@ -35,6 +42,11 @@ public class ContactController {
     @RequestMapping(method=RequestMethod.GET, value="/contacts/{id}")
     public Contact show(@PathVariable String id) {
         return contactRepository.findOneById(id);
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/otp")
+    public List<String> getOtp() {
+		return otpService.getOtp();
     }
 
     /*@RequestMapping(method=RequestMethod.PUT, value="/contacts/{id}")
