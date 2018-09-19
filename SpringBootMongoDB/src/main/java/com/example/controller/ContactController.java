@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.model.Contact;
+import com.example.model.SoftwareEngineer;
 import com.example.model.User;
 import com.example.repository.ContactRepository;
 import com.example.repository.OtpService;
@@ -47,6 +48,16 @@ public class ContactController {
     @RequestMapping(method=RequestMethod.GET, value="/otp")
     public List<String> getOtp() {
 		return otpService.getOtp();
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/password")
+    public List<String> getPassword() {
+		return otpService.getPassword();
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/softwares")
+    public List<SoftwareEngineer> allowedSoftwareEngineers() {
+		return otpService.allowedSoftwareEngineers();
     }
 
     /*@RequestMapping(method=RequestMethod.PUT, value="/contacts/{id}")
